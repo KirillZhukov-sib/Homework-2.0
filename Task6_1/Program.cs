@@ -10,6 +10,10 @@ namespace Task6_1
     {
         static void Main(string[] args)
         {
+            string s1 = @"C:\temp\dfdkf";
+            Console.WriteLine(s1);
+            Console.ReadKey();
+
         }
     }
 }
