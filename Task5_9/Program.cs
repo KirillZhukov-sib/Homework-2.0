@@ -10,32 +10,24 @@ namespace Task5_9
     {
         static void Main(string[] args)
         {
-            const int size = 10;
-            int[] numbers = new int[size];
+            const int n = 5;
+            const int m = 5;
+            int[,]a = new int[n,m];
             Random random = new Random();
 
-            // Заполняем массив случайными числами от 5 до 15
-            for (int i = 0; i < size; i++)
+            for (int i=0; i < m; i++)
             {
-                numbers[i] = random.Next(5, 16); // Верхняя граница 16 не включается
-                Console.Write($"{numbers[i]} ");
-            }
-
-            // Находим максимальное значение и его индекс
-            int maxValue = numbers[0];
-            int maxIndex = 0;
-
-            for (int i = 1; i < size; i++)
-            {
-                if (numbers[i] > maxValue)
+                for (int j=0; j < n; j++)
                 {
-                    maxValue = numbers[i];
-                    maxIndex = i;
-                }
+                    a[i,j] = random.Next(0,n);
+                    Console.Write($"{a}");
+                }    
+                
+                Console.WriteLine();
             }
 
-            Console.WriteLine($"\nМаксимальное значение: {maxValue}");
-            Console.WriteLine($"Индекс максимального значения: {maxIndex}");
+
+            Console.ReadKey();
         }
     }
 }
