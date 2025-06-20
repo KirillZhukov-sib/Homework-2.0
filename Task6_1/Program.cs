@@ -1,0 +1,31 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Web;
+
+namespace Task6_1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Введите предложение: ");
+
+            string input = Console.ReadLine();
+            string[] words = input.Split(' ');
+            string max = words[0];
+
+            for (int i = 1; i < words.Length; i++)
+            {
+                if (words[i].Length > max.Length)
+                    max = words[i];
+            }
+
+            Console.WriteLine("Самое длинное слово предложения: {0}  ", max);
+            Console.ReadKey();
+        }
+    }
+}
