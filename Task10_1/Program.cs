@@ -51,14 +51,22 @@ namespace Task10_1
 
 
 
-    class Example
+    public class Building
     {
         public string _adress;
         public double _area;
         public int _yearbuilt;
 
+        
 
-        Example(string adress, double area, int yearbuilt);
+        public Building(string adress, double area, int yearbuilt)
+        {
+            this._adress = adress;
+            this._area = area;
+            this._yearbuilt = yearbuilt;
+        }
+
+
 
 
 
