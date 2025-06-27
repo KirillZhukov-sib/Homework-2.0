@@ -12,7 +12,7 @@ namespace Task10_1
         {
             Triangle triangle = new Triangle();
             RectTriangle triangleRect = new RectTriangle();
-            Object.
+
         }
     }
 
@@ -31,7 +31,7 @@ namespace Task10_1
     }
 
 
-    class RectTriangle:Triangle
+    class RectTriangle : Triangle
     {
 
     }
@@ -53,7 +53,12 @@ namespace Task10_1
 
     class Example
     {
-        public AppDomain Domain { get; set; }
+        public string _adress;
+        public double _area;
+        public int _yearbuilt;
+
+
+        Example(string adress, double area, int yearbuilt);
 
 
 
@@ -66,4 +71,6 @@ namespace Task10_1
 
 
 
+
+    }
 }
