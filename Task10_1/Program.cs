@@ -21,7 +21,7 @@ namespace Task10_1
         private double _area;
         private int _yearbuilt;
 
-        public string BuildingAge(get;)
+        public string built (get;set)
 
         public Building(string adress, double area, int yearbuilt)
         {
