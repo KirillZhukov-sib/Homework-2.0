@@ -10,26 +10,45 @@ namespace Task11_1
     {
         static void Main(string[] args)
         {
+            Animal[] pets = new Animal[]
+            {
+                new Cat(),
+                new Dog()
+            };
 
-
-
+            foreach (Animal i in pets)
+            {
+                Console.WriteLine(i.Showinfo());
+            }
         }
-
-
-
-
     }
-    public abstract class Geometricshapes
+    public abstract class Animal
     {
-        public abstract string Dame
-        { get; }
+        public abstract string name { get; }
 
-        public void Say()
-        {
+        public abstract string Say();
 
-
-        }
-
-
+        public string Showinfo()
+        { return $"{name} говорит: {Say()}"; }
     }
+
+    public class Cat : Animal
+    {
+        public override string name => "Кот";
+        public override string Say()
+        {
+            return "Мяу";
+        }
+    }
+
+    public class Dog : Animal
+    {
+        public override string name => "Пёс";
+        public override string Say()
+        {
+            return "Гав";
+        }
+    }
+
+
 }
