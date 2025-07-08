@@ -20,6 +20,7 @@ namespace Task5_9
                 for (int j=0; j < n; j++)
                 {
                     a[i,j] = random.Next(0,n);
+
                     Console.Write($"{a}");
                 }    
                 
