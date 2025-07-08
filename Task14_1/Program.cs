@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,27 +11,36 @@ namespace Task14_1
     {
         static void Main(string[] args)
         {
-            List<string> tasks = new List<string>();
+            List<string> gamers = new List<string>();
+            gamers.Add("Иванов");
+            gamers.Add("Петров");
+            gamers.Add("Сидоров");
 
-            tasks.Add("Помыть посуду");
-            tasks.Add("Купить продукты");
-            tasks.Add("Покорпить кота");
+            gamers.Insert(1, "Козлов");
 
-            tasks.Insert(1, "Сделать зарятку");
+            bool Petrov = gamers.Contains("Петров");
+            Console.WriteLine($"Есть ли Петров в команде? {Petrov}");
 
-            foreach (string task in tasks)
+            gamers.Remove("Сидоров");
+
+            Console.WriteLine($"Индекс игрока Козлов: {gamers.IndexOf("Козлов")}");
+
+            gamers.Sort();
+
+            Console.WriteLine("Текущий состав команды:");
+            for (int i = 0; i < gamers.Count; i++)
             {
-                Console.WriteLine(task);
+                Console.WriteLine($"{i}. {gamers[i]}");
             }
 
-            bool cats = tasks.Contains("Покормить кота");
-            Console.WriteLine($"Если задача {cats}");
+            bool empty = gamers.Count == 0;
+            Console.WriteLine($"Команда пуcта? - {empty}");
 
+            gamers.Clear();
 
+            Console.WriteLine($"Количество игроков после очистки: {gamers.Count}");
 
         }
-
-
     }
 
 
