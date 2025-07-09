@@ -11,7 +11,7 @@ namespace Task15_1
     {
         static void Main(string[] args)
         {
-            int a = 4;
+            double a = 2.5;
             int name = a.GetHashCode();
             Console.WriteLine(name);
 
