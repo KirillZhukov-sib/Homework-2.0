@@ -15,14 +15,16 @@ namespace Task16_1
             Console.WriteLine("Введите размер массива");
             int input = Convert.ToInt32(Console.ReadLine());
 
-            // Задача с использованием продолжения
+            //Задача с использованием продолжения
             Console.WriteLine("Метод с использованием задачи продолжения");
             MethodContinue(input);
 
 
             // Задача с использованием asynk/await
             Console.WriteLine("Метод с использованием asynk/await");
+            await MethodAsync(input);
 
+            Console.WriteLine("Задачи завершены");
         }
 
         static void MethodContinue(int input)
@@ -35,16 +37,12 @@ namespace Task16_1
         static async Task MethodAsync(int input)
         {
             int[] array = await Task.Run(() => Method1(input));
-            Console.WriteLine("Массив: " + string.Join(", ", array));
+            Console.WriteLine("Массив: " + string.Join(" ", array));
 
             // Вычисляем среднее асинхронно
-            double average = await Task.Run(() => Method2(t.Result));
+            double average = await Task.Run(() => Method2(array));
             Console.WriteLine("Среднее арифметическое: " + average);
         }
-
-
-
-
         public static int[] Method1(int a)
         {
             Thread.Sleep(1000);
@@ -64,7 +62,6 @@ namespace Task16_1
             for (int i = 0; i < arr.Length; i++)
             { s += arr[i]; }
             return s / arr.Length;
-
         }
     }
 }
