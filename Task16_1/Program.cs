@@ -10,19 +10,40 @@ namespace Task16_1
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             Console.WriteLine("Введите размер массива");
-            int input = Convert.ToInt32(Console.Readline());
+            int input = Convert.ToInt32(Console.ReadLine());
 
-            Task<int[]> task1 = Task.Run(() => Method1(4));
-            Task<int> task2 = task1.ContinueWith(t => Method2(t.Result));
+            // Задача с использованием продолжения
+            Console.WriteLine("Метод с использованием задачи продолжения");
+            MethodContinue(input);
 
-            task2.Wait();
-            Console.WriteLine(string.Join(" ", task1.Result));
-            Console.WriteLine(task2.Result);
+
+            // Задача с использованием asynk/await
+            Console.WriteLine("Метод с использованием asynk/await");
 
         }
+
+        static void MethodContinue(int input)
+        {
+            Task<int[]> task1 = Task.Run(() => Method1(input));
+            Task<int> task2 = task1.ContinueWith(t => Method2(t.Result));
+            Console.WriteLine("Массив: " + string.Join(" ", task1.Result));
+            Console.WriteLine("Среднее значение: " + task2.Result);
+        }
+        static async Task MethodAsync(int input)
+        {
+            int[] array = await Task.Run(() => Method1(input));
+            Console.WriteLine("Массив: " + string.Join(", ", array));
+
+            // Вычисляем среднее асинхронно
+            double average = await Task.Run(() => Method2(t.Result));
+            Console.WriteLine("Среднее арифметическое: " + average);
+        }
+
+
+
 
         public static int[] Method1(int a)
         {
@@ -43,6 +64,7 @@ namespace Task16_1
             for (int i = 0; i < arr.Length; i++)
             { s += arr[i]; }
             return s / arr.Length;
+
         }
     }
 }
