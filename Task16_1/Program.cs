@@ -39,7 +39,6 @@ namespace Task16_1
             int[] array = await Task.Run(() => Method1(input));
             Console.WriteLine("Массив: " + string.Join(" ", array));
 
-            // Вычисляем среднее асинхронно
             double average = await Task.Run(() => Method2(array));
             Console.WriteLine("Среднее арифметическое: " + average);
         }
